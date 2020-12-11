@@ -1,0 +1,111 @@
+{
+	"HEATING_GOAL_OFFSET": {
+		"name": "Heating Goal Temperature Offset",
+		"desc": "Offset is added to the goal temperature when used in calculations. Radiators still give out heat a while after being turned off!",
+		"value": -1.0
+	},
+	"HEATING_TEMPERATURE_THRESHOLD": {
+		"name": "Heating Temperature Threshold",
+		"desc": "Current temperature must be <= (Goal-Threshold) to turn the heating back on! Threshold must be <= offset.",
+		"value": -2.0
+	},
+	"HEATING_MINIMUM_TEMPERATURE": {
+		"name": "Heating Minimum Temperature",
+		"desc": "Even if heating is not scheduled or manually turned on, the boiler will turn on when the temperature drops below this value with the goal set to current+threshold.",
+		"value": 15.0
+	},
+	"HEATING_DEFAULT_MODE": {
+		"name": "Heating Mode Default",
+		"desc": "What value to use as the current temperature as default.",
+		"value": "auto"
+	},
+	"HEATING_MODE_ENUM": {
+		"name": "Acceptable Heating Modes",
+		"desc": "Acceptable values for heating modes. Auto will use '_heatingAutoMode' function in 'services/thermo-state'.",
+		"value": [
+			"auto",
+			"aidan",
+			"holly"
+		]
+	},
+	"CHILD_PI_IP_ADDRESSES": {
+		"name": "Child Pi IP Addresses and association with Heating Modes",
+		"desc": "stored in mode:ip pairs.",
+		"value": {
+			"aidan": "192.168.0.100",
+			"holly": "192.168.0.101"
+		}
+	},
+	"CHILD_PI_PORT": {
+		"name": "Child Pi Port",
+		"desc": "Child Pi port to use when communicating with them - should be within port range",
+		"value": 3030
+	},
+	"CHILD_PI_TEMP_URL": {
+		"name": "Child Pi Fetch Temp URL",
+		"desc": "Child Pi url to use to fetch current temp",
+		"value": "api/temp"
+	},
+	"CHILD_PI_CACHE_TTL": {
+		"name": "Child Pi Cache TTL",
+		"desc": "Time to Live in seconds for fetched data from child Pi's",
+		"value": 120
+	},
+	"HEATING_CHECK_INTERVAL_MINUTES": {
+		"name": "Heating Check Interval",
+		"desc": "How often the temperatures and schedule are checked in minutes.",
+		"value": 12,
+		"initializeFilesOnChange": [
+			"../services/thermo-state"
+		]
+	},
+	"WATER_CHECK_INTERVAL_MINUTES": {
+		"name": "Hot Water Check Interval",
+		"desc": "How often the schedule is checked in minutes.",
+		"value": 12,
+		"initializeFilesOnChange": [
+			"../services/thermo-state"
+		]
+	},
+	"CRON_JOBSTORE_AUTO_CLEAN_INTERVAL": {
+		"name": "Cron Jobstore Auto Clean Interval",
+		"desc": "Seconds. A cron job is used to periodically clear out the jobstore.",
+		"value": 120,
+		"initializeFilesOnChange": [
+			"../services/cron-manager"
+		]
+	},
+	"GET_SCHEDULE_SAVED_CALENDAR_IDENTIFIER": {
+		"name": "get-schedule.js Saved Calendar Identifier",
+		"desc": "Used to identify the calendarItem array in the cache store.",
+		"value": "XXX"
+	},
+	"CALENDAR_CACHE_TTL": {
+		"name": "get-schedule Calendar Cache Time to Live",
+		"desc": "How long calendar items are cached for in seconds.",
+		"value": 30
+	},
+	"CALENDAR_CRON_JOB_TIME_OFFSET": {
+		"name": "Calendar Cron Job Time Offset",
+		"desc": "Offset in seconds the trigger time for cron jobs for calendar event start/end DTs.",
+		"value": 5
+	},
+	"CALENDAR_DEFAULT_HOURS_FUTURE": {
+		"value": 2
+	},
+	"HEATING_MANUAL_MAXIMUM_DURATION": {
+		"value": 720
+	},
+	"HEATING_MANUAL_MINIMUM_DURATION": {
+		"value": 20
+	},
+	"WATER_MANUAL_MAXIMUM_DURATION": {
+		"value": 1440
+	},
+	"WATER_MANUAL_MINIMUM_DURATION": {
+		"value": 10
+	},
+	"API_DOCUMENTATION_URL": {
+		"value": "https://documenter.getpostman.com/view/11739320/TVmQdG3M"
+	}
+}
